@@ -1,0 +1,29 @@
+create database Movie;
+use movie;
+create table movie(
+Title varchar(50),
+BudgetInMillions varchar(5),
+ReleaseDate varchar(10),
+RevenueInMillions varchar(5),
+RatingAverage varchar(5));
+desc movie;
+insert into movie values('Avatar','237','10-12-2009','278','7.2');
+insert into movie values('Titanic','200','18-11-1997','185','7.5');
+insert into movie values('The Avenger','220','25-04-2012','152','7.4');
+insert into movie values('Jurassic World','150','09-06-2015','151','6.5');
+insert into movie values('Furious 7','190','01-04-2015','150','7.3');
+insert into movie values('The Avenger:age of ultron','280','22-04-2015','141','7.3');
+insert into movie values('Iron Man 3','200','18-04-2013','122','6.8');
+insert into movie values('Minions','74','17-06-2015','11','6.4');
+insert into movie values('Captain America:Civil War','250','27-04-2016','115','7.1');
+insert into movie values('Transformers:Dark of the Moon','195','28-06-2011','112','6.1');
+select title from movie;
+select*from movie where title='Jurassic World' and RatingAverage='6.5';
+select*from movie where RatingAverage>='7';
+select*from movie where title like'____Avenger%';
+select title,RatingAverage from movie where RatingAverage between '7' and '8';
+select title from movie where BudgetInMillions>='250';
+select title,RatingAverage from movie where RevenueInMillions between '150' and '200';
+select title,ReleaseDate from movie where title like 'T%';
+select sum(RevenueInMillions) from movie;
+select title,RevenueInMillions from movie where RevenueInMillions in(select min(RevenueInMillions)from movie);
